@@ -1,0 +1,42 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="card text-left">
+	<div class="card-body text-dark">
+		<div class="row text-center">
+			<h4 class="card-title d-inline col-md-6" id="first_name">
+				First name: {{ user.first_name }}
+			</h4>
+			<h4 class="card-text col-md-6" id="last_name">
+				Last name: {{ user.last_name }}
+			</h4>
+			<h4 class="card-text d-inline col-md-6" id="dni">{{ user.dni }}</h4>
+			<h4 class="card-text col-md-6" id="birth_date ">
+				Birth date: {{ user.birth_date }}
+			</h4>
+			<h4 class="card-text d-inline col-md-6" id="phone_number">
+				Phone number: {{ user.phone_number }}
+			</h4>
+			<h4 class="card-text col-md-6" id="adress">Adress: {{ user.address }}</h4>
+			<div class="row col-md-12 justify-content-center">
+				<a
+					href="{% url 'home' %}"
+					onclick="deluser(document.getElementById('dni').innerHTML)"
+					class="btn btn-danger p-1 m-1 col-md-2"
+				>
+					Delete</a
+				>
+				<a
+					href="{% url 'modify' %}?dni={{ user.dni }}"
+					action=""
+					class="btn btn-primary d-inline p-1 m-1 col-md-2"
+					>Update</a
+				>
+				<a href="{% url 'home' %}" class="btn btn-secondary p-1 m-1 col-md-2">
+					Back</a
+				>
+			</div>
+		</div>
+	</div>
+</div>
+{% load static %}
+<script src="{% static 'js\delete.js' %}" type="text/javascript"></script>
+{% endblock %}
