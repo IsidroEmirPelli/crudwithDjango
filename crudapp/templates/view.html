@@ -18,8 +18,9 @@
 			<h4 class="card-text col-md-6" id="adress">Adress: {{ user.address }}</h4>
 			<div class="row col-md-12 justify-content-center">
 				<a
+					id="deletebtn"
 					href="{% url 'home' %}"
-					onclick="deluser(document.getElementById('dni').innerHTML)"
+					onclick="deletePersona()"
 					class="btn btn-danger p-1 m-1 col-md-2"
 				>
 					Delete</a

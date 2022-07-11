@@ -19,10 +19,9 @@ from crudapp import views
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
-    path('register', views.register, name='register'),
+    path('register/', views.register, name='register'),
     path('modify/', views.modify, name='modify'),
-    path('', views.home, name='inicio'),
-    path('home', views.home, name='home'),
+    path('', views.home, name='home'),
     path('userget/', views.getData, name='userget'),
     path('userpost/', views.addPersona, name='addPersona'),
     path('view/', views.view, name='view'),

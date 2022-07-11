@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from crudapp.scripts import modify_database as modify_db
 from crudapp.models import Persona
 from crudapp.serializer import PersonaSerializer
 from rest_framework.response import Response
@@ -17,7 +16,7 @@ def register(request):
 
 
 def modify(request):
-    """Receives a dni and returns the information"""
+    """Receives a dni and returns the information for modify it"""
     dni = request.GET.get('dni')
     user = Persona.objects.get(dni=dni)
     return render(request, 'modify.html', {'user': user})
@@ -100,5 +99,5 @@ def deletePersona(request):
     if request.method == 'DELETE':
         dni = request.GET['dni']
         Persona.objects.filter(dni=dni).delete()
-        return Response(status=204)
+        return Response(status=204,)
     return Response(status=400)
